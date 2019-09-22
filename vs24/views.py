@@ -59,3 +59,6 @@ def product_detail_views(request):
 
 def cart(request):
     return render(request, 'vs24/product_cart.html')
+
+
+# testing git
