@@ -1,0 +1,29 @@
+{% extends 'vs24/base.html' %}
+{% load static %}
+{% block title %} login {% endblock title%}
+{% block style %}
+<link href="{% static 'vs24/css/product-page.css' %}" rel="stylesheet" type="text/css">
+{% endblock style%}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<div class="outer-login-body">
+
+    <div class="login-main-container">
+     <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+         <div class="login_1-login_2">
+             <div class="login-body1"><h1 style="font-family: verdana; font-weight: normal; font-size: 40px;">Login</h1></div>
+             <div class="login-body2">
+                <p>Username</p>
+                <input type="text" name="username" placeholder="username" class="txt">
+                <p>Password</p>
+                <input type="Password" name="psssword" placeholder="**********" class="txt">
+                <center><input type="submit" name="login" class="btn" value="login"></center>
+                <p class="lb">Forget Password</p>
+             </div>
+         </div>
+     </form>
+    </div>
+
+</div>
+{% endblock contain %}

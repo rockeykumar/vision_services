@@ -1,0 +1,207 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapper{
+    background-color: #f7f7f7;  /*#f7f7f7*/
+    width: 100%;
+    height: auto;
+}
+
+.service-body{
+    margin-top:30px;
+    margin-bottom: 50px;
+    display: grid;
+    height: 250px;
+    width: 1249px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    background-color: transparent;
+    grid-template-columns: 407px 407px 407px;
+    grid-template-rows: 250px 250px;
+    grid-gap: 14px;
+    transition: .2s;
+}
+.service {
+    background-color: transparent;
+    transition: .2s;
+    cursor: pointer;
+}
+.service:hover {
+    margin-top: -3px;
+    margin-bottom: 3px;
+    box-shadow: 0px 8px 15px 0px #7b7b7b;
+}
+.service-body .service img {
+    width: 407px;
+    height: 250px;
+}
+.service-body .service .overlayer {
+    width: 407px;
+    height: 250px;
+    color: white;
+    position: absolute;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 50px;
+    transition: .2s;
+}
+/*--------------- Fieldset Legend ------------------------*/
+.fieldset-legend {
+    background-color: transparent;
+	width: 1349px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+}
+.left {
+    background-color: transparent;
+    height: 100%;
+    width: 485px;
+    float: left;
+    padding-left: 185px;
+    text-align: right;
+}
+.center {
+    background-color: transparent;
+    color: #817F7F;
+    height: 100%;
+    width: 379px;
+    float: left;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+}
+.right {
+    background-color: transparent;
+    height: 100%;
+    width: 485px;
+    float: left;
+    box-sizing: border-box;
+}
+.line {
+    background-color: #9E9C9C;
+    height: .5px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    border-radius: 50px;
+}
+/*--------------- Fieldset Legend End ------------------------*/
+.grid-container {
+    margin-top:30px;
+    margin-bottom: 70px;
+    display: grid;
+    height: 584px;
+    width: 1249px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    background-color: transparent;
+    grid-template-columns: 625px 311px 311px;
+    grid-template-rows: 285px 285px;
+    grid-gap: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.items {
+    background-color: #fff;
+    transition: .2s;
+    box-sizing: border-box;
+    padding-right: 40px;
+}
+.items:hover {
+    box-shadow: 0px 8px 15px 0px #7b7b7b;
+}
+.my-grid {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.my-grid-down {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.accessories {
+    background-color: transparent;
+    width: 1349px;
+    height: 584px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.accessories .acc-hot {
+    display: grid;
+    height: 584px;
+    width: 1249px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    background-color: transparent;
+    grid-template-columns: 301px 301px 301px 301px;
+    grid-template-rows: 285px 285px;
+    grid-gap: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+.accessories .acc-hot .hot-item {
+    background-color: #fff;
+    transition: .2s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.accessories .acc-hot .hot-item:hover {
+    box-shadow: 0px 8px 15px 0px #7b7b7b;
+}
+
+.accessories .acc-hot .h-my-grid {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.special-conatiner {
+    background-color: transparent;
+    width: 1249px;
+    height: 300px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.special-conatiner .spcl-items {
+    display: grid;
+    width: 1249px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    background-color: transparent;
+    grid-template-columns: 617px 617px;
+    grid-template-rows: 300px;
+    grid-gap: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+.special-conatiner .spcl-items .boxes {
+    background-color: transparent;
+    transition: .2s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.special-conatiner .spcl-items .boxes:hover {
+    margin-top: -3px;
+    margin-bottom: 3px;
+    box-shadow: 0px 8px 15px 0px #7b7b7b;
+}

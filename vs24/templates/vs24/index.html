@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>coming soon...!</title>
+    <link href="{% static 'vs24/main.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vs24/css/animate.css' %}" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .detail{
+            width: 100%;
+            height: 80px;
+            background: transparent;
+            position: absolute;
+            top: 22%;
+            color: #fff;
+            text-align: center;
+            font-family: verdana;
+            font-size: 30px;
+            animation: blinker 0.6s linear infinite;
+        }
+        .img1
+        {
+            width: 30px;
+            height: 30x;
+            float: right;
+            margin-top: 20px;
+            padding-right:5px;
+            
+        }
+        @keyframes blinker {  
+            50% { opacity: 0; }
+        }
+        .service{
+            top: 26%;
+            background: transparent;
+            width: 100%;
+            position: absolute;
+            padding-left: 8%;
+            padding-right: 8%;
+        }
+        .service .sr{
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            padding: 2px;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 180px;
+            border-radius: 100%;
+            box-shadow: 0px 0px 20px 1px #000;
+            font-family: verdana;
+        }
+    
+        .service ul li{
+            list-style: none;
+            display: inline-block;
+            padding: 2%;
+        }
+        .number{
+            font-weight: bold;
+            font-size: 30px;
+            color: #fff;
+            line-height: 75px;
+            float: right;
+            text-decoration: none;
+        }
+        .service span{
+            color: #fff;
+            line-height: 90px;
+            font-size: 20px;
+            font-family: verdana;
+        }
+        
+        @media (max-width: 768px){
+            .outer-container{
+                display: block;
+            }
+            .header{
+                background-color: transparent;
+                width: 100%;
+                height: 40px;
+            }
+            .header a {
+                color: #fff;
+                text-decoration: none;
+                font-family: verdana;
+                line-height: 30px;
+                font-size: 15px;
+            }
+            .header ul{
+                float: right;
+            }
+            .header ul li {
+                color: #fff;
+                list-style: none;
+                display: inline-block;
+                padding-right: 20px;
+                line-height: 50px;
+                font-family: verdana;
+                font-size: 15px;
+            }
+            .panel3{
+
+                background-color: transparent;
+                height: 40px;
+                width: 70%;
+                top: 33%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                position: absolute;
+                text-align: center;
+            }
+            .header .logo{
+                font-size: 30px;
+                font-weight: bold;
+                font-family: lucida calligraphy;
+                line-height: 60px;
+            }
+            .number{
+                font-weight: bold;
+                color: #fff;
+                padding-top: 5%;
+                float: right;
+                text-decoration: none;
+                display: block;
+            }
+            .btn1{
+                background: linear-gradient(90deg, #be2edd, #5f27cd);
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                border-bottom-left-radius: 50px;
+                border-top-left-radius: 50px;
+                text-decoration: none;
+                color: #fff;
+                transition: .7s;
+                font-family: verdana;
+            }
+            .btn2{
+                background: linear-gradient(-90deg, #be2edd, #5f27cd);
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                border-bottom-right-radius: 50px;
+                border-top-right-radius: 50px;
+                text-decoration: none;
+                color: #fff;
+                transition: .7s;
+                font-family: verdana;
+            }
+            .outer-container{
+                width: 100%;
+                height: 3400px;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .vision{
+                height: auto;
+                background-color: transparent;
+                position: absolute;
+                top: 6%;
+                left: 50%;
+                width: 100%;
+                transform: translate(-50%, -50%);
+            }
+            .panel3{
+                background-color: transparent;
+                height: 40px;
+                width: 60%;
+                top: 11%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                position: absolute;
+                text-align: center;
+            }
+            .detail{
+                width: 100%;
+                height: 80px;
+                background: transparent;
+                position: absolute;
+                top: 12%;
+                color: #fff;
+                text-align: center;
+                font-family: verdana;
+                font-size: 30px;
+                animation: blinker 0.8s linear infinite;
+            }
+            @keyframes blinker {  
+                50% { opacity: 0; }
+            }
+            .service{
+                top: 14%;
+                background: transparent;
+                width: 100%;
+                position: absolute;
+                padding-left: 18%;
+                padding-right: 8%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="outer-container">
+    <div class="overlayer">
+        <div class="main-container">
+            <div class="header">
+                <a href="#"><img src="{% static 'vs24/oval_logo.png'%}"
+                                 style="float: left;width: 120px;height: 60px;color:white;"></a>
+                <a href="#" class="number">7677033044</a>
+                <img class="img1" src="{% static 'vs24/whatsapp.png'%}">&nbsp;
+                <img class="img1" src="{% static 'vs24/telephone.png'%}">&nbsp;
+            </div>
+
+            <div class="vision">
+                <h1>Vision Services</h1>
+                <h4>coming soon...!</h4>
+            </div>
+
+            <div class="panel3">
+                <a href="{% url 'home'%}" class="btn1">login</a>
+                <a href="#" class="btn2">sign up</a>
+            </div>
+            <div class="detail">Our Services</div>
+            <div class="service">
+                <ul>
+                    <li>
+                        <div class="wow slideInLeft"><img class="sr" src="{% static 'vs24/alarm_cctv.jpg'%}"></div>
+                        <center><span>CCTV Service</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInLeft"><img class="sr" src="{% static 'vs24/cpu.jpeg'%}"></div>
+                        <center><span>Computer Repair</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInRight"><img class="sr" src="{% static 'vs24/laptop.jpg'%}"></div>
+                        <center><span>Laptop Repair</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInRight"><img class="sr" src="{% static 'vs24/pc-networks.png'%}"></div>
+                        <center><span>Networking Support</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInLeft"><img class="sr" src="{% static 'vs24/biometric.png'%}"></div>
+                        <center><span>Bio-Metrics setup</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInLeft"><img class="sr" src="{% static 'vs24/epabx.jpg'%}"></div>
+                        <center><span>EPABX Setup</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInRight"><img class="sr" src="{% static 'vs24/audio.jpg'%}"></div>
+                        <center><span>Audio/Video Conference</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInRight"><img class="sr" src="{% static 'vs24/led.jpg'%}"></div>
+                        <center><span>LED/LCD Repair</span></center>
+                    </li>
+                    <li>
+                        <div class="wow slideInUp"><img class="sr" src="{% static 'vs24/man.jpg'%}"></div>
+                        <center><span>MAN Power</span></center>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------------------Don't touch javaScripts parts-------------------------------------------------------------->
+<script src="{% static 'vs24/js/wow.min.js' %}"></script>
+<script>
+        new WOW().init();
+</script>
+</body>
+</html>

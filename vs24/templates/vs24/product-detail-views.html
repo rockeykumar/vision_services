@@ -1,0 +1,66 @@
+{% extends 'vs24/base.html' %}
+{% block style %}{% load static %}
+<!--<link href="{% static 'vs24/css/home-page-product.css' %}" rel="stylesheet" type="text/css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<link href="{% static 'vs24/css/product-details-views.css' %}" rel="stylesheet" type="text/css">
+<style>
+
+</style>
+{% endblock style %}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<!------------------ Don't Touch ---------------------------------------------------------------------------------->
+<div class="product-views-container">
+    <div class="container_section_1">
+        <div class="image-section_1">
+            <div class="small-pic">
+                <ul>
+                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
+                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
+                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
+                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
+
+                </ul>
+            </div>
+            <div class="large-pic-body">
+                <div class="large-picture">
+                    <img src="{% static 'vs24/gallery/lenovo.jpg' %}" class="pic" >
+                </div>
+            </div>
+             <div class="large-pic-body-button">
+                <input type="submit" name="addToCart" value="Add to Cart" class="cart_button">
+                 <input type="submit" name="Buy" value="Buy" class="buy_button">
+            </div>
+        </div>
+        <!--------- Description Section ---------------------------------------------------------->
+        <div class="Description-section_1">
+            <h1>Lenovo Yoga 700 Series</h1>
+            <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price</h4 >
+            <span style="font-size: 35px;">&#8377;299
+                <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; 499</span>
+                <span style="color:  #4cd707;font-size: 20px;">79% off</span>
+            </span>
+            <ul style="padding: 25px;">
+                <li style="padding: 6px;">Special PriceGet extra 20% off (price inclusive of discount)T&C</li>
+                <li style="padding: 6px;">Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
+                <li style="padding: 6px;">Bank Offer5% Cashback* on HDFC Bank Debit CardsT&C</li>
+                <li style="padding: 6px;">Bank OfferExtra 5% off* with Axis Bank Buzz Credit CardT&C</li>
+            </ul>
+            <div style=" height:50px; background-color: #f7f7f7; margin-top: 150px; text-align:center; line-height:50px; ">
+                <span style=" font-size: 20px;"><span>  &#10003;</span>  Safe and Secure Payments.Easy returns.100% Authentic products.</span>
+            </div>
+            
+        </div>
+        <!-- Description Section End -------------------------------------------------------------->
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock contain %}

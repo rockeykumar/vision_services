@@ -1,0 +1,95 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.outer-login-body{
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.login-main-container
+{
+    background-color: transparent;
+    width: 420px;
+	height: 520px;
+	box-sizing: border-box;
+	border-radius: 5px;
+
+}
+.login-body1
+	{
+		background-color: transparent;
+		width: 100%;
+		height: 85px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		box-shadow: 0px 0px 8px 0px #d0d3d4;
+		padding-left: 35px;
+		padding-top: 16px;
+		color: #4CD707;
+	}
+	.login-body2
+	{
+		background-color: transparent;
+		width: 100%;
+		height: 420px;
+		margin-top: 10px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		box-shadow: 0px 0px 10px 0px #d0d3d4;
+		padding-left: 35px;
+		padding-top: 50px;
+		padding-right: 40px;
+		font-family: arial;
+	}
+	.login-body2 p
+	{
+		font-size: 20px;
+	}
+
+	.login-body2 .txt
+	{
+		width: 100%;
+		margin-top: 20px;
+		height: 45px;
+		padding: 10px;
+		box-sizing: border-box;
+		margin-bottom: 40px;
+		padding-top: 10px;
+		font-weight: bold;
+		outline: none;
+		border: none;
+		border-bottom: 2px solid #9f9f9f;
+		background-color: transparent;
+		border-radius: 2px;
+	}
+	.login-body2 .btn
+	{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 100px;
+		padding-left: 100px;
+		background-color: #4cd707;
+		outline: none;
+		border: none;
+		border: 1px solid #4cd707;
+		border-radius: 50px;
+		color: white;
+		transition: .3s ease;
+		cursor: pointer;
+	}
+	.login-body2 .btn:hover
+	{
+		background-color: transparent;
+		border: 1px solid #4cd707;
+		color: #4cd707;
+	}
+	.login-body2 .lb
+	{
+		color: #4cd707;
+		margin-top: 40px;
+		font-size: 15px;
+	}

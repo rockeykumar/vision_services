@@ -1,0 +1,38 @@
+{% extends 'vs24/base.html' %}
+{% load static %}
+{% block title %} Sign up {% endblock title%}
+{% block style %}
+<link href="{% static 'vs24/css/signup-page.css' %}" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+</style>
+{% endblock style%}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<div class="container">
+    <div class="registration-main-container">
+    <form action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+     <div class="login_1-login_2">
+         <div class="registration-body1"><h1 style="font-family: verdana; font-weight: normal; font-size: 40px;">Signup</h1></div>
+         <div class="registration-body2">
+            <p>Name</p>
+            <input type="text" name="name" placeholder="First-name" class="name" value="{{ FName }}" required >
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="lname" placeholder="Last-name" class="name" value="{{ LName }}" required>
+            <p>Email-id</p>
+            <input type="email" name="e_mail" placeholder="{% if note is not None %}Already Exits...!{% else %}Email-id{% endif %}" class="txt" value="{{ Email }}" required >
+            <p>Mobile-no</p>
+            <input type="text" name="mobile" placeholder="Mobile-no" class="txt" value="{{ Mobile }}" required >
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password" class="txt" required >
+             <p>Confirm password</p>
+            <input type="password" name="Conf-password" placeholder="Confirm password" class="txt" required >
+            <center><input type="submit" name="btnRegister" class="btn" value="Register"></center>
+            <p class="lb">Already register  <a href="{% url 'login' %}" >Login here</a></p>
+         </div>
+     </div>
+ </form>
+</div>
+</div>
+{% endblock contain %}

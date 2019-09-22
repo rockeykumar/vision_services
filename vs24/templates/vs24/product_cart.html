@@ -1,0 +1,113 @@
+{% extends 'vs24/base.html' %}
+{% block style %}{% load static %}
+<!--<link href="{% static 'vs24/css/home-page-product.css' %}" rel="stylesheet" type="text/css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<link href="{% static 'vs24/css/product-cart.css' %}" rel="stylesheet" type="text/css">
+<style>
+
+</style>
+{% endblock style %}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<!------------------ Don't Touch ---------------------------------------------------------------------------------->
+<div class="product-cart-container">
+
+    <div class="container_section_1">
+
+
+        <!--------- left Section ---------------------------------------------------------->
+        <div class="left_view">
+
+            <div class="left_view_header">
+                <span style="line-height: 50px;color:grey;font-weight:bold; font-size: 20px;">My cart (4)</span>
+            </div>
+
+            <div class="product">
+                <div class="pic">
+                    <img class="pic" src="{% static 'vs24/gallery/lenovo.jpg' %}" class="pic" >
+                </div>
+                <div class="Description-section">
+                    <h2>Lenovo Yoga 700 Series</h2>
+                    <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price <span style=" color: black; float: right; margin-right: 40px;">Delivery by Thu Aug 29 | Free₹40</span ></h4 >
+                    <span style="font-size: 35px;">&#8377;299
+                        <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; 499</span>
+                        <span style="color:  #4cd707;font-size: 20px;">79% off</span>
+                    </span>
+                    <ul style="padding: 10px;">
+                        <li style="padding: 6px;">Special PriceGet extra 20% off (price inclusive of discount)T&C</li>
+                        <li style="padding: 6px;">Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
+                    </ul>
+                    <button type="submit" class="remove_btn">Remove</button>
+                </div>
+            </div>
+
+
+            <div class="product">
+                <div class="pic">
+                    <img class="pic" src="{% static 'vs24/gallery/lenovo.jpg' %}" class="pic" >
+                </div>
+                <div class="Description-section">
+                    <h2>Lenovo Yoga 700 Series</h2>
+                    <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price <span style=" color: black; float: right; margin-right: 40px;">Delivery by Thu Aug 29 | Free₹40</span ></h4 >
+                    <span style="font-size: 35px;">&#8377;299
+                        <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; 499</span>
+                        <span style="color:  #4cd707;font-size: 20px;">79% off</span>
+                    </span>
+                    <ul style="padding: 10px;">
+                        <li style="padding: 6px;">Special PriceGet extra 20% off (price inclusive of discount)T&C</li>
+                        <li style="padding: 6px;">Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
+                    </ul>
+                    <button type="submit" class="remove_btn">Remove</button>
+                </div>
+            </div>
+
+
+            <div class="product">
+                <div class="pic">
+                    <img class="pic" src="{% static 'vs24/gallery/lenovo.jpg' %}" class="pic" >
+                </div>
+                <div class="Description-section">
+                    <h2>Lenovo Yoga 700 Series</h2>
+                    <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price <span style=" color: black; float: right; margin-right: 40px;">Delivery by Thu Aug 29 | Free₹40</span ></h4 >
+                    <span style="font-size: 35px;">&#8377;299
+                        <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; 499</span>
+                        <span style="color:  #4cd707;font-size: 20px;">79% off</span>
+                    </span>
+                    <ul style="padding: 10px;">
+                        <li style="padding: 6px;">Special PriceGet extra 20% off (price inclusive of discount)T&C</li>
+                        <li style="padding: 6px;">Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
+                    </ul>
+                    <button type="submit" class="remove_btn">Remove</button>
+                </div>
+            </div>
+        </div>
+        <!--------- left Section end ---------------------------------------------------------->
+
+        <!--------- right Section ---------------------------------------------------------->
+        <div class="right_view">
+            <div class="right_view_header" style="border-radius: 5px; margin-bottom: 15px; ">
+                <span style="line-height: 50px;color:grey;font-weight:bold; font-size: 20px;">PRICE DETAILS</span>
+            </div>
+            <div class="right_view_body">
+                <h3 style="padding-bottom: 20px;"><span style="font-weight: bold; "> Price(4 Item)</span> <span style="float: right;">&#8377;2765 </span></h3>
+                <h3  style="padding-bottom: 12px;"><span style="font-weight: bold; "> Delivery</span> <span style="float: right;">Free </span></h3>
+                <span style=" color: grey; padding-bottom: 15px;">__________________________________________</span>
+                <h3  style="padding-bottom: 12px;padding-top: 12px;"><span style="font-weight: bold; ">Total Payable</span> <span style="float: right;">&#8377;2765 </span></h3>
+            </div>
+             <div class="right_view_header" style="border-radius: 0px 0px 5px 5px;">
+                <span style="line-height: 50px;color:green;font-weight:bold; font-size: 16px;">You will save ₹250 on this order</span>
+            </div>
+
+        </div>
+        <!--------- right Section end ---------------------------------------------------------->
+
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock contain %}
