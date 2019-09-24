@@ -1,0 +1,116 @@
+
+.product-cart-container {
+    background-color: #f7f7f7;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.container_section_1
+{
+    background-color: transparent;
+    width: 1330px;
+	height: auto;
+	box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.left_view
+{
+    background-color: transparent;
+    width: 860px;
+    height: auto;
+	padding: 30px;
+    float: left;
+}
+
+.right_view
+{
+    background-color: transparent;
+    width: 350px;
+    height: 400px;
+    padding: 30px;
+    float: right;
+    position: sticky;
+    top: 60px;
+}
+.product
+{
+    float: left;
+    background-color: white;
+    width: 884px;
+	height: 330px;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 8px 0px #d0d3d4;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.pic
+{
+    width: 200px;
+    height: 250px;
+    margin-top: 16px;
+    float: left;
+    background-color: white;
+    padding-left: 20px;
+}
+
+.Description-section
+{
+    float: right;
+    background-color: white;
+    margin-top: 0px;
+    width: 70%;
+	height: 100%;
+	box-sizing: border-box;
+    padding-left: 50px;
+    padding-top: 30px;
+    /*border: 1px solid #9f9f9f;*/
+    /*border-left: none;*/
+    border-radius: 5px;
+}
+
+.left_view_header
+{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    padding-left: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 0px #d0d3d4;
+}
+.remove_btn
+{
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    margin-top: 40px;
+    background-color: transparent;
+    outline: none;
+}
+
+.right_view_header
+{
+    width: 97%;
+    height: 50px;
+    background-color: white;
+    float:right;
+    padding-left: 25px;
+    box-shadow: 0px 0px 8px 0px #d0d3d4;
+}
+.right_view_body
+{
+    width: 95%;
+    height: 135px;
+    float:right;
+    background-color: white;
+    padding-left: 25px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 0px 8px 0px #d0d3d4;
+    padding: 16px;
+    margin-top: -5px;
+}
