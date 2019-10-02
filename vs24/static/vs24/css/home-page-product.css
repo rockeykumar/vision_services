@@ -5,8 +5,10 @@
 
 .wrapper{
     background-color: #f7f7f7;  /*#f7f7f7*/
-    width: 100%;
+    width: 1349px;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .service-body{
