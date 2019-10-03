@@ -4,9 +4,9 @@
     }
 .container
 {
-    background-color: #f7f7f7;
+    background-color: greenyellow;      /*    #f7f7f7    */
     background-attachment: fixed;
-    background-position: cover;
+    /*background-position: cover;*/
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -19,6 +19,8 @@
 	height: 645px;
 	box-sizing: border-box;
 	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .registration-body1
 	{
