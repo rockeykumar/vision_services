@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
-
+from django.db.models.signals import pre_save
+from vision.utils import unique_slug_generator
 
 class product_categories(models.Model):
     product_category = models.CharField(max_length=100)
@@ -12,16 +13,10 @@ class product_categories(models.Model):
 class product_table(models.Model):
     product_category = models.ForeignKey(product_categories, on_delete=models.CASCADE)
     product_model = models.CharField(max_length=30, primary_key=True)
-    product_slug = models.SlugField(max_length=450, unique=True)
+    product_slug = models.SlugField(max_length=450, blank=True, null=True)
     product_title = models.CharField(max_length=150)
     product_brand = models.CharField(max_length=150)
     product_add_date = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.product_title
-
-    def __str__(self):
-        return self.product_brand
 
 
 class product_details(models.Model):
@@ -59,3 +54,11 @@ class sellers_product(models.Model):
 
     def __str__(self):
         return self.product_model.product_model
+
+
+
+def slug_generator(sender, instance, *args, **kwargs):
+    if not instance.product_slug:
+        instance.product_slug = unique_slug_generator(instance)
+
+pre_save.connect(slug_generator, sender=product_table)
