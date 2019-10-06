@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42918234-d9ab-4525-9727-f0a359b72ae2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/product/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vs24/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vs24/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vision/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vision/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vs24/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/vs24/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vs24/migrations/0002_auto_20190610_2132.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vs24/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vs24/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +70,8 @@
       <option name="presentableId" value="Default" />
       <updated>1560595133980</updated>
       <workItem from="1569179241876" duration="3008000" />
+      <workItem from="1570292571996" duration="274000" />
+      <workItem from="1570347992534" duration="595000" />
     </task>
     <servers />
   </component>
@@ -70,7 +83,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
