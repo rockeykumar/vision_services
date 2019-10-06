@@ -18,6 +18,9 @@ class product_table(models.Model):
     product_brand = models.CharField(max_length=150)
     product_add_date = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.product_model
+
 
 class product_details(models.Model):
     product_model = models.ForeignKey(product_table, on_delete=models.CASCADE)
