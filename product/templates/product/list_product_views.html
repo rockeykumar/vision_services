@@ -1,0 +1,61 @@
+{% extends 'vs24/base.html' %}
+{% load static %}
+{% block title %} Product Views {% endblock title%}
+{% block style %}
+<link href="{% static 'product/css/list_product_views.css' %}" rel="stylesheet" type="text/css">
+{% load static %}
+<style>
+    @font-face {
+        font-family: 'abc';
+        src: url("/static/vs24/font/Dual-300.otf");
+    }
+
+    *{
+        font-family: abc, fantasy;
+    }
+
+</style>
+{% endblock style%}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<div class="outer-product-views-list">
+    <section class="product_view">
+        <div class="categories">
+            <h1 style="font-size: 20px; line-height: 60px;margin-left: 30px; font-family: abc, fantasy; color: #525252;">categories > {{ category }} </h1>
+        </div>
+        <ul>
+            {% for i in obj %}
+                <a href="{{ category }}/{{ i.product_slug }}">
+                    <li>
+                        <div class="list-item">
+                            <table border="0"  style="text-align: center; width: 100%; height: 100%;">
+                                <tr>
+                                    {% for k in i.product_details_set.all %}
+                                        <td><img src="{{ k.product_image1.url }}" style="width: 200px;height: 200px;"></td>
+                                    {% endfor %}
+                                </tr>
+                                <tr >
+                                    <td style="color: #525252;">{{ i.product_title }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                         {% for j in i.sellers_product_set.all %}
+                                        <span style="color: grey; text-decoration: line-through;">&#8377;</span><span style="color: #525252; text-decoration: line-through; ">{{ j.product_price }}</span>&nbsp;
+                                        <span  style="color: lime; font-size: large; font-weight: bold;">&#8377;</span><span  style="color: lime; font-size: large; font-weight: bold;">{{ j.product_discount_price }}</span>&nbsp;
+                                        <span style="color: white; font-size: small; background:  darkorange; padding: 4px; border-radius: 2px;"> {{ j.product_discount }} % off </span>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+
+</div>
+
+
+{% endblock contain %}

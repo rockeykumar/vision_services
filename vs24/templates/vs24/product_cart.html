@@ -4,7 +4,14 @@
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
 <link href="{% static 'vs24/css/product-cart.css' %}" rel="stylesheet" type="text/css">
 <style>
+    /*@font-face {*/
+    /*    font-family: 'abc';*/
+    /*    src: url("/static/vs24/font/ColabLig.otf");*/
+    /*}*/
 
+    /*body {*/
+    /*    font-family: abc, fantasy;*/
+    /*}*/
 </style>
 {% endblock style %}
 {% block contain %}
@@ -14,12 +21,11 @@
 
     <div class="container_section_1">
 
-
         <!--------- left Section ---------------------------------------------------------->
         <div class="left_view">
 
             <div class="left_view_header">
-                <span style="line-height: 50px;color:grey;font-weight:bold; font-size: 20px;">My cart (4)</span>
+                <span style="line-height: 50px;color:grey; font-size: 20px; font-family: abc, fantasy; ">My cart (4)</span>
             </div>
 
             <div class="product">
@@ -85,8 +91,8 @@
 
         <!--------- right Section ---------------------------------------------------------->
         <div class="right_view">
-            <div class="right_view_header" style="border-radius: 5px; margin-bottom: 15px; ">
-                <span style="line-height: 50px;color:grey;font-weight:bold; font-size: 20px;">PRICE DETAILS</span>
+            <div class="right_view_header" style="border-radius: 0px; margin-bottom: 15px; ">
+                <span style="line-height: 50px;color:grey; font-size: 20px; font-family: abc, fantasy;">PRICE DETAILS</span>
             </div>
             <div class="right_view_body">
                 <h3 style="padding-bottom: 20px;"><span style="font-weight: bold; "> Price(4 Item)</span> <span style="float: right;">&#8377;2765 </span></h3>
@@ -94,7 +100,7 @@
                 <span style=" color: grey; padding-bottom: 15px;">__________________________________________</span>
                 <h3  style="padding-bottom: 12px;padding-top: 12px;"><span style="font-weight: bold; ">Total Payable</span> <span style="float: right;">&#8377;2765 </span></h3>
             </div>
-             <div class="right_view_header" style="border-radius: 0px 0px 5px 5px;">
+            <div class="right_view_header" style="border-radius: 0px 0px 0px 0px;">
                 <span style="line-height: 50px;color:green;font-weight:bold; font-size: 16px;">You will save ₹250 on this order</span>
             </div>
 

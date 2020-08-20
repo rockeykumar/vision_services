@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Product To DBMS</title>
+</head>
+<body>
+<form action="{% url 'insert_product_database' %}" method="POST">{% csrf_token %}
+    <table border="0px" cellpadding="10" cellspacing="10">
+        <tr>
+            <td>Product id : </td>
+            <td><input type="text" name="product_id" value="100{{ pid }}" readonly></td>
+        </tr>
+
+        <tr>
+            <td>Product Category : </td>
+            <td>
+                <select name="product_categories" style="width: 175px;" required >
+                    <option value="select">select any one</option>
+                    {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Product Model : </td>
+            <td><input type="text" name="product_model" required></td>
+        </tr>
+
+        <tr>
+            <td>Product Title : </td>
+            <td><input type="text" name="product_title" required></td>
+        </tr>
+
+        <tr>
+            <td>Product Brand : </td>
+            <td><input type="text" name="product_brand" required></td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><input type="submit" value="submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

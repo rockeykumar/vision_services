@@ -1,0 +1,78 @@
+{% extends 'vs24/base.html' %}
+{% load static %}
+{% block title %}
+
+    {% if response.RESPCODE == '01' %}
+        Transaction Successfully....!
+    {% else %}
+        Transaction Failed...!
+    {% endif %}
+
+{% endblock title%}
+{% block style %}
+<link href="{% static 'vs24/css/product-page.css' %}" rel="stylesheet" type="text/css">
+<style>
+    .wrapper{
+        background-color: #fff;
+        width: 90%;
+        height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+        box-sizing: border-box;
+    }
+    .wrapper h2{
+        text-align: center;
+        padding-bottom: 20px;
+    }
+</style>
+{% endblock style%}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<div class="outer-login-body">
+    <div class="wrapper">
+<!--        {{ response }}-->
+        <br>
+        {% if response.RESPCODE == '01' %}
+        <h2 style="color: limegreen;">Your Order Placed Successfully....! </h2><hr>
+        <table cellspacing="30px;">
+            <tr>
+                <td>Order id  </td>
+                <td> : &nbsp;&nbsp;SN{{ response.ORDERID }}</td>
+            </tr>
+            <tr>
+                <td>Transaction id  </td>
+                <td> : &nbsp;&nbsp;{{ response.TXNID }}</td>
+            </tr>
+        </table>
+
+        {% else %}
+        <h2 style="color: red;">Sorry, Your Order Not Proceed....! </h2><hr>
+        {% endif %}
+    </div>
+</div>
+{% endblock contain %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

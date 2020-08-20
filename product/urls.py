@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('product/', views.index, name='index'),
-
+    path('<slug:slug>/', views.index, name='index'),
+    path('', views.dynamic_categories, name='dynamic_categories'),
+    path('<str:name>/<slug:slug>/', views.index, name='index'),
 ]

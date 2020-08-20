@@ -1,0 +1,77 @@
+{% extends 'vs24/base.html' %}
+{% block title %} My Order {% endblock title%}
+{% block style %}{% load static %}
+<!--<link href="{% static 'vs24/css/home-page-product.css' %}" rel="stylesheet" type="text/css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<link href="{% static 'tracking/css/track.css' %}" rel="stylesheet" type="text/css"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<style>
+    /*@font-face {*/
+    /*    font-family: 'abc';*/
+    /*    src: url("/static/vs24/font/ColabLig.otf");*/
+    /*}*/
+
+    /*body {*/
+    /*    font-family: abc, fantasy;*/
+    /*}*/
+    a {
+        color: black;
+    }
+    a:hover{
+        color: orangered;
+    }
+</style>
+{% endblock style %}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<!------------------ Don't Touch ---------------------------------------------------------------------------------->
+<div class="product-cart-container">
+
+    <div class="container_section_1">
+        <!--------- left Section ---------------------------------------------------------->
+        <div class="left_view">
+            <div class="left_view_header">
+                <span  style="line-height: 50px;color:grey; font-size: 20px; font-family: abc, fantasy; ">My Order List</span>                     <!---------  my order list -------------------->
+            </div>
+
+            {% for chk in checkout_obj %}
+
+                {% if chk.process == 'Canceled' or chk.process == 'Failed' %}
+                    <div class="order_list">
+                        <div class="pic">
+                            {% for i in chk.product_id.product_details_set.all %}
+                            <img class="pic" src="{{ i.product_image1.url }}" class="pic" >
+                            {% endfor %}
+                        </div>
+                        <div class="prd_title">
+                            <h2 style="line-height: 60px; float: left">{{ chk.product_id.product_title }} ( {{ chk.process }} ) </h2>
+                            <h2 style="line-height: 60px; float: right; color: gray;">Status</h2>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{{ chk.id }}" >
+                        <div class="order_list">
+                            <div class="pic">
+                                {% for i in chk.product_id.product_details_set.all %}
+                                <img class="pic" src="{{ i.product_image1.url }}" class="pic" >
+                                {% endfor %}
+                            </div>
+                            <div class="prd_title">
+                                <h2 style="line-height: 60px; float: left">{{ chk.product_id.product_title }} ( {{ chk.process }} ) </h2>
+                                <h2 style="line-height: 60px; float: right; color: gray;">Status</h2>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <!--------- left Section end ---------------------------------------------------------->
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+{% endblock contain %}

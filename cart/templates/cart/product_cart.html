@@ -1,0 +1,208 @@
+{% extends 'vs24/base.html' %}
+{% block title %} cart | add | product {% endblock title%}
+{% block style %}{% load static %}
+<!--<link href="{% static 'vs24/css/home-page-product.css' %}" rel="stylesheet" type="text/css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<link href="{% static 'vs24/css/product-cart.css' %}" rel="stylesheet" type="text/css"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<style>
+    /*@font-face {*/
+    /*    font-family: 'abc';*/
+    /*    src: url("/static/vs24/font/ColabLig.otf");*/
+    /*}*/
+
+    /*body {*/
+    /*    font-family: abc, fantasy;*/
+    /*}*/
+</style>
+{% endblock style %}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<!------------------ Don't Touch ---------------------------------------------------------------------------------->
+<div class="product-cart-container">
+
+    <div class="container_section_1">
+
+        <!--------- left Section ---------------------------------------------------------->
+        <div class="left_view">
+
+            <div class="left_view_header">
+                <span  style="line-height: 50px;color:grey; font-size: 20px; font-family: abc, fantasy; ">My cart (<span id="total_count">{{ total_count }}</span>)</span>                     <!---------  total item in  cart -------------------->
+            </div>
+
+            {% for item in cart_obj %}
+            <div id="{{ item.id }}" class="product">
+                <div class="pic">
+                    {% for i in item.product_id.product_details_set.all %}
+                    <a href="product/{{ item.product_id.product_slug }}" style="text-decoration: none;"><img class="pic" src="{{ i.product_image1.url }}" class="pic" ></a>
+                    {% endfor %}
+                </div>
+                <div class="Description-section">
+                    {% if item.product_id.product_title|length > 40 %}
+                    <a href="product/{{ item.product_id.product_slug }}" style="text-decoration: none;"><h2 style="color: #525252;">{{ item.product_id.product_title|slice:":40" }}....</h2></a>
+                    {% else %}
+                    <a href="product/{{ item.product_id.product_slug }}" style="text-decoration: none;"><h2 style="color: #525252;">{{ item.product_id.product_title }}</h2></a>
+                    {% endif %}
+                    <!-- title -->
+                    <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price <span style=" color: black; float: right; margin-right: 40px;">Delivery by {{ Date|date:"d M Y" }} | Free₹40</span ></h4 >
+                    <h5>Seller : {{ item.seller.seller_name }}</h5><br>                                                 <!-- -----------retailer name  ---------->
+                    {% for i in item.product_id.sellers_product_set.all %}
+                    <span style="font-size: 35px;">&#8377;{{ i.product_discount_price }}
+                            <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; {{ i.product_price }}</span>
+                            <span style="color:  #4cd707;font-size: 20px;">{{ i.product_discount }}% off</span>
+                        </span>
+                    {% endfor %}
+                    <ul style="padding: 10px;">                                                                                    <!----   Offer Here   ------>
+                        <!--                        <li style="padding: 6px;">Special PriceGet extra 20% off (price inclusive of discount)T&C</li>-->
+                        <!--                        <li style="padding: 6px;">Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>-->
+                        <form id="customeForm{{ forloop.counter }}" variable="{% url 'ajax_dynamical' %}" method="post">{% csrf_token %}   <!---------- custome Form ---------------------->
+                            <button class="myclass" id="{{ item.product_id.product_id }}:{{ item.seller.seller_name }}:minus:{{ forloop.counter }}" type="submit" name="" value="sub" style=" cursor: pointer; font-weight: bold;font-size: large; padding: 0px; width: 25px; height: 25px; border-radius: 50px; outline: none; border: 1px solid grey;background: transparent; ">-</button>
+                            <input id="{{ forloop.counter }}" type="text" name="" value="{{item.count }}" style="width: 50px; height: 22px;text-align: center;font-weight: bold;"  >
+                            <button class="myclass" id="{{ item.product_id.product_id }}:{{ item.seller.seller_name }}:add:{{ forloop.counter }}" type="submit" name="" value="add" style=" cursor: pointer; font-weight: bold;font-size: large; padding: 0px; width: 25px; height: 25px; border-radius: 50px; outline: none; border: 1px solid grey;background: transparent; ">+</button>
+                        </form>
+                    </ul>
+                    <form id="deleteForm{{ item.id }}"  variable="{% url 'delete_item' %}" method="post">{% csrf_token %}
+                        <button type="submit" class="remove_btn" value="{{ item.id }}" style="cursor: pointer;color: orangered;">Remove</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!--------- left Section end ---------------------------------------------------------->
+
+        <!--------- right Section ---------------------------------------------------------->
+        <form action="{% url 'order-Place' %}" method="POST"> {% csrf_token %}
+            <div class="right_view">
+                <div id="fixed_sticky">
+                    <div class="right_view_header" style="border-radius: 0px; margin-bottom: 15px; ">
+                        <span style="line-height: 50px;color:grey; font-size: 20px; font-family: abc, fantasy;">PRICE DETAILS</span>
+                    </div>
+                    <div class="right_view_body">
+                        <h3 style="padding-bottom: 20px;">
+                            <span style="font-weight: bold; "> Price (<span id="right_total_count">{{ total_count }}</span>  Item)</span>
+                            <span style="float: right;">&#8377; <span id="dic_price">{{ dic_price }}</span></span>
+                        </h3>
+                        <h3  style="padding-bottom: 12px;"><span style="font-weight: bold; "> Delivery</span> <span style="float: right;">Free </span></h3>
+                        <span style=" color: grey; padding-bottom: 15px;">_____________________________________</span>
+                        <h3  style="padding-bottom: 12px;padding-top: 12px;">
+                            <span style="font-weight: bold; ">Total Payable</span>
+                            <span style="float: right;">&#8377;  <span id="net_total_false">{{ dic_price }}</span></span>
+                            <input type="text" name="amount" id="net_total" value="{{ dic_price }}" hidden>
+                        </h3>
+                    </div>
+                    <div class="right_view_header" style="border-radius: 0px 0px 0px 0px;">
+                        <span style="line-height: 50px;color:green;font-weight:bold; font-size: 16px;">You will save ₹ <span id="saving">{{ saving }}</span> on this order</span>
+                    </div>
+
+                    <div class="" style="border-radius: 0px 0px 0px 0px;">
+                        <input id="tot_amt_btn" onclick="order_fun()" type="submit" name="placeOrder" value="Place Order" class="cart_button" >
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--------- right Section end ------------   var url = $("#customeForm").attr("variable");   ---------------------------------------------->
+    </div>
+</div>
+
+
+<!---------------------- don't touch Increment Cart Items --------------------->
+<script>
+    $(".myclass").click(function(e) {
+        e.preventDefault();
+        var id_arr = (this.id).split(':');
+        var count_item = $("#"+id_arr[3]).val();
+        var id = id_arr[0];
+        var seller = id_arr[1];
+        var nature = id_arr[2];
+        if(count_item==1 && nature=='minus') {
+            alert("Minimum Item is 1...!");
+            return;
+        }
+        else if(count_item==3 && nature=='add') {
+            alert("Maximum Item is 3...!");
+            return;
+        }
+        var url = $("#customeForm"+id_arr[3]).attr("variable");
+        $.ajax({
+            url: url,
+            data: {
+                'id': id,
+                'seller': seller,
+                'nature': nature
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.user) {
+                    var i = data.user;
+                    $("#"+id_arr[3]).val(i.count_incr);
+                    $("#total_count").text(i.total_count);
+                    $("#cart_count").text(i.total_count);
+                    $("#right_total_count").text(i.total_count);
+                    $("#dic_price").text(i.dic_price);
+                    $("#net_total_false").text(i.dic_price);
+                    $("#net_total").val(i.dic_price);
+                    $("#saving").text(i.saving);
+                }
+            }
+        });
+        $('form#customeForm').trigger("reset");
+        return false;
+    });
+</script>
+
+<!-------------------------------  Delete Cart ------------------------------------------------->
+<script>
+    $(".remove_btn").click(function(e) {
+        e.preventDefault();
+        var remove_id = $(this).val();
+        var url = $("#deleteForm"+remove_id).attr("variable");
+        $.ajax({
+            url: url,
+            data: {
+                'remove_id': remove_id
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.user) {
+                    var i = data.user;
+                    $("#total_count").text(i.total_count);
+                    $("#cart_count").text(i.total_count);
+                    $("#right_total_count").text(i.total_count);
+                    $("#dic_price").text(i.dic_price);
+                    $("#net_total_false").text(i.dic_price);
+                    $("#net_total").val(i.dic_price);
+                    $("#saving").text(i.saving);
+                    $("#"+i.remove_id).hide(100);
+                }
+            }
+        });
+        $('form#customeForm').trigger("reset");
+        return false;
+    });
+</script>
+
+<script>
+    var tot_amt = document.getElementById("net_total").value;
+    var tot_btn = document.getElementById("tot_amt_btn");
+    if(tot_amt == 0){
+        // alert("zero")
+        tot_btn.disabled=true;
+        tot_btn.style.color="black";
+        tot_btn.style.backgroundColor="#ccc";
+    }
+
+    function order_fun(){
+        var tot_amt_btnn = document.getElementById("net_total").value;
+        if(tot_amt_btnn == 0) {
+            alert("Your cart is empty");
+            tot_btn.disabled=true;
+            tot_btn.style.color="black";
+            tot_btn.style.backgroundColor="#ccc";
+        }
+    }
+</script>
+
+
+
+
+{% endblock contain %}

@@ -1,0 +1,57 @@
+{% extends 'vs24/base.html' %}
+{% load static %}
+{% block title %} Address {% endblock title%}
+{% block style %}
+<link href="{% static 'cart/css/order-address.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock style%}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<form action="{% url 'confirmOrder' %}" method="POST">{% csrf_token %}
+    <div class="orderAddressContainer" >
+        <div class="leftSide">
+            <h1>Address</h1><hr>
+            <table border="0" width="100%" style="margin-top: 20px;">
+                <tr>
+                    <td>Full Name</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="customer_full_name" class="txtbox" placeholder="Full Name" value="Rocky" required></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="customer_address" class="txtbox" placeholder="Address" value="Mithapur" required></td>
+                </tr>
+                <tr>
+                    <td>Land Mark</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="customer_land_mark" class="txtbox" placeholder="Land Mark" value="water tank" required></td>
+                </tr>
+                <tr>
+                    <td>Pin Code</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="customer_pincode" class="txtbox" value="800001" placeholder="Pin Code" required></td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="customer_mobile" class="txtbox" value="8102306237" placeholder="Mobile" required></td>
+                </tr>
+            </table>
+        </div>
+        <div class="rightSide">
+            <h1>Total Amount</h1><hr>
+            <!--        <center><span style="padding-top: 430px; font-size: 40px;">{{ total_price }}</span></center>-->
+            <center>
+                <input type="text" readonly name="cnfrm_price" value="{{ total_price }}" style="text-align: center; background: transparent; border: none; margin-top: 30px;font-size: 30px;">
+            </center>
+            <input type="submit" name="placeOrder" value="Confirm" class="cart_button" >
+        </div>
+    </div>
+</form>
+{% endblock contain %}

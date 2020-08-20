@@ -3,8 +3,17 @@
 <!--<link href="{% static 'vs24/css/home-page-product.css' %}" rel="stylesheet" type="text/css">-->
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
 <link href="{% static 'vs24/css/product-details-views.css' %}" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-
+    #img-zoom-lens {
+      background-size: 3px 3px;
+      background-image: radial-gradient(circle, #30ABD7 1px, rgba(0, 0, 0, 0) 1px);
+      position: absolute;
+      visibility: hidden;
+      width: 280px;
+      height: 180px;
+    }
 </style>
 {% endblock style %}
 {% block contain %}
@@ -15,48 +24,162 @@
         <div class="image-section_1">
             <div class="small-pic">
                 <ul>
-                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
-                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
-                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
-                    <li><img src="{% static 'vs24/gallery/payment.jpg' %}" class="li"></li>
+                    {% for i in obj.product_details_set.all %}
 
+                    <li><img id="image1" onmouseover="myfun(this.src)" src="{{ i.product_image1.url }}"  class="li"></li>
+                    <li><img id="image2" onmouseover="myfun(this.src)"  src="{{ i.product_image2.url }}" class="li"></li>
+                    <li><img id="image3" onmouseover="myfun(this.src)"  src="{{ i.product_image3.url }}" class="li"></li>
+                    <li><img id="image4" onmouseover="myfun(this.src)"  src="{{ i.product_image4.url }}" class="li"></li>
+
+                    {% endfor %}
                 </ul>
             </div>
             <div class="large-pic-body">
-                <div class="large-picture">
-                    <img src="{% static 'vs24/gallery/lenovo.jpg' %}" class="pic" >
+                <div class="large-picture" onmouseover="show('this.img.id','result_img')" onmouseleave="hide('this.img.id','result_img')" >
+                    <img name="result" id="main_image" src="{% static 'vs24/css/bg1.jpg' %}"  class="pic"  >
                 </div>
             </div>
-             <div class="large-pic-body-button">
-                <input type="submit" name="addToCart" value="Add to Cart" class="cart_button">
-                 <input type="submit" name="Buy" value="Buy" class="buy_button">
-            </div>
+
+            <form action="{% url 'cart' %}" method="post">   <!------------------Add to cart ------------------>
+                {% csrf_token %}
+                <div class="large-pic-body-button">
+                    <input type="hidden" name="pro_id" value="{{obj.product_id}}" />
+                    <input type="hidden" name="pro_seller" value="{{min_price_obj.seller_name}}" />
+                    <input type="submit" name="addToCart" id="addToCart" value="Add to Cart" class="cart_button">
+                    <!--                <input type="submit" name="Buy" value="Buy" class="buy_button">-->
+                </div>
+            </form>
         </div>
         <!--------- Description Section ---------------------------------------------------------->
-        <div class="Description-section_1">
-            <h1>Lenovo Yoga 700 Series</h1>
-            <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price</h4 >
-            <span style="font-size: 35px;">&#8377;299
-                <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; 499</span>
-                <span style="color:  #4cd707;font-size: 20px;">79% off</span>
+
+        <div class="Description-section_1" id="result_img">
+            <!--                                                                                             zooming effect-->
+
+
+            <span id="desp" >
+                <h1>{{ obj.product_title }}</h1>
+                <h5>Seller : {{min_price_obj.seller_name}}</h5>
+                <h4 style="color:  #4cd707; margin-top: 10px;margin-bottom: 10px;">Special Price</h4 >
+                <span style="font-size: 35px;">&#8377; {{ min_price_obj.product_discount_price }}                 <!-- price min -->
+                    <span style="text-decoration: line-through; font-size: 20px;color: grey;"> &#8377; {{ min_price_obj.product_price }} </span>             <!-- price max -->
+                    <span style="color:  #4cd707;font-size: 20px;">{{ min_price_obj.product_discount }}% off</span>               <!-- price discount -->
+                </span>
+
+                <ul style="padding: 25px;">
+                    {% for i in desc %}
+                    <li style="padding: 6px;"> {{ i }} </li>
+                    {% endfor %}
+                </ul>
+                <div style=" height:50px; background-color: #f7f7f7; margin-top: 150px; text-align:center; line-height:50px; ">
+                    <span style=" font-size: 20px;"><span>  &#10003;</span>  Safe and Secure Payments.Easy returns.100% Authentic products.</span>
+                </div>
             </span>
-            <ul style="padding: 25px;">
-                <li style="padding: 6px;">Special PriceGet extra 20% off (price inclusive of discount)T&C</li>
-                <li style="padding: 6px;">Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
-                <li style="padding: 6px;">Bank Offer5% Cashback* on HDFC Bank Debit CardsT&C</li>
-                <li style="padding: 6px;">Bank OfferExtra 5% off* with Axis Bank Buzz Credit CardT&C</li>
-            </ul>
-            <div style=" height:50px; background-color: #f7f7f7; margin-top: 150px; text-align:center; line-height:50px; ">
-                <span style=" font-size: 20px;"><span>  &#10003;</span>  Safe and Secure Payments.Easy returns.100% Authentic products.</span>
-            </div>
-            
         </div>
         <!-- Description Section End -------------------------------------------------------------->
     </div>
 
+    <script type="text/javascript">
+
+        var img = document.getElementById('image1').src;
+        myfun(img);
+
+        function myfun(value) {
+            document.getElementById("main_image").src = value;
+        }
+    </script>
+    <!--    Ajax calling     -->
+
+   <script>
+
+        function imageZoom(imgID, resultID,value) {
+            var img, lens, result, cx, cy;
+            img = document.getElementById(imgID);
+
+            result = document.getElementById(resultID);
+
+            /*------------create lens:----------------*/
+            lens = document.createElement("DIV");
+            lens.setAttribute("id", "img-zoom-lens");
+            /*insert lens:*/
+            img.parentElement.insertBefore(lens, img);
+            console.log(img);
+
+            /*calculate the ratio between result DIV and lens:*/
+            cx = result.offsetWidth / lens.offsetWidth;
+            cy = result.offsetHeight / lens.offsetHeight;
+
+            /*set background properties for the result DIV:*/
+            result.style.backgroundImage = "url('" + img.src + "')";
+            result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+
+            /*execute a function when someone moves the cursor over the image, or the lens:*/
+            lens.addEventListener("mousemove", moveLens);
+            img.addEventListener("mousemove", moveLens);
+
+            /*and also for touch screens:*/
+            lens.addEventListener("touchmove", moveLens);
+            img.addEventListener("touchmove", moveLens);
+
+
+            function moveLens(e) {
+            var pos, x, y;
+            /*prevent any other actions that may occur when moving over the image:*/
+            e.preventDefault();
+
+            /*get the cursor's x and y positions:*/
+            pos = getCursorPos(e);
+            /*calculate the position of the lens:*/
+            a = img.getBoundingClientRect();
+            x = pos.x - (lens.offsetWidth/2 );
+            y = pos.y - (lens.offsetHeight/2);
+
+            /*prevent the lens from being positioned outside the image:*/
+            if (x > img.width - lens.offsetWidth) {  x = img.width - lens.offsetWidth;}
+            if (x < 0) { x = 0;}
+            if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight;}
+            if (y < 0) {y = 0;}
+            /*set the position of the lens:*/
+            lens.style.left = (x+a.left) + "px";
+            lens.style.top = (y+a.top) + "px";
+            /*display what the lens "sees":*/
+            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+          }
+
+
+          function getCursorPos(e) {
+            var a, x = 0, y = 0;
+            e = e || window.event;
+            /*get the x and y positions of the image:*/
+            a = img.getBoundingClientRect();
+            /*calculate the cursor's x and y coordinates, relative to the image:*/
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /*consider any page scrolling:*/
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x : x, y : y};
+          }
 
 
 
+        }
+    </script>
+
+    <script>
+        function show(imgID,resultID){
+            imageZoom('main_image','result_img');
+            document.getElementById(resultID).style.visibility = 'visible';
+            document.getElementById("desp").style.visibility = 'hidden';
+            document.getElementById("img-zoom-lens").style.visibility = 'visible';
+
+        }
+        function hide(imgID,resultID){
+            document.getElementById(resultID).style.visibility = 'hidden';
+            document.getElementById("desp").style.visibility = 'visible';
+            document.getElementById("img-zoom-lens").style.visibility = 'hidden';
+        }
+
+    </script>
 
 
 

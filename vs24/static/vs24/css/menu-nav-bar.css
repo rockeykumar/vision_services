@@ -146,7 +146,7 @@
 .footer-body .section1 {
     width: 1350px;
     height: 70px;
-    background-color: #f7f7f7;       /*   #f7f7f7    */
+    background-color: #f3f3f3;       /*   #f7f7f7    */
 }
 .footer-body .section2 {
     width: 1350px;
@@ -190,14 +190,17 @@
     list-style: none;
 }
 
-.footer-body .footer-container ul a {
+.footer-body .footer-container ul .category_btn {
     text-decoration: none;
-		color: #9E9C9C;
+	color: #9E9C9C;
+	border: none;
+	outline: none;
+	background: transparent;
+	cursor: pointer;
 }
-.footer-body .footer-container ul a:hover
+.footer-body .footer-container ul .category_btn:hover
 {
-	color: #4cd707;
-	border-bottom: 1px solid #4cd707;
+	color: white;
 }
 .footer-body .footer-container ul li {
 

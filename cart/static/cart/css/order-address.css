@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.orderAddressContainer{
+    background-color: #f3f3f3;  /*#f3f3f3*/
+    width: 1349px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.orderAddressContainer .leftSide{
+    background-color: #fff;
+    float: left;
+    width: 65%;
+    height: 480px;
+    padding: 30px;
+}
+
+.orderAddressContainer .rightSide{
+    background-color: #fff;
+    float: right;
+    width: 25%;
+    height: 480px;
+    padding: 30px;
+}
+.orderAddressContainer .leftSide .txtbox {
+    width:100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 30px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.cart_button
+{
+    background-color: orangered;
+    margin-left: -15px;
+    margin-top: 5px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 152px;
+    padding-right: 152px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: abc, fantasy;
+    font-weight: bold;
+}

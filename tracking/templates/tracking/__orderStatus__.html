@@ -1,0 +1,111 @@
+{% extends 'vs24/base.html' %}
+{% load static %}
+{% block title %} Order Status {% endblock title%}
+{% block style %}
+<link href="{% static 'tracking/css/orderStatus.css' %}" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #progress{
+        width: 1%;
+        height: 100%;
+        background-color: orange;
+        border-radius: 50px;
+        box-shadow: 0 0 5px 1px orange;
+    }
+    .orderStatus-body a {
+        color: black;
+        text-decoration: none;
+    }
+
+</style>
+{% endblock style%}
+{% block contain %}
+<div class="pro-body-navbar"></div>
+<div class="orderStatus-body">
+    <a href="product/{{ obj.product_slug }}">
+        <div class="status-inner-body">
+            <div class="img">
+                {% for i in obj.product_details_set.all %}
+                <img id="image1"  src="{{ i.product_image4.url }}" class="img">
+                {% endfor %}
+            </div>
+            <h1>{{ obj.product_title }}</h1><br>
+            {% for i in obj.sellers_product_set.all %}
+            <h4>Seller : {{ i.seller_name}}</h4><br>
+            {% endfor %}
+
+            <span>Purchase Date : {{ statusob.current_date|date:'d-m-Y' }}</span>
+            <span style="float: right;">Deliver Date : {{ delivered_Date|date:'d-m-Y' }}</span><br><br>
+            <span> Progress</span><br><div style="background-color: grey; width: 68%; height: 1px; margin-left: 280px; margin-top: 10px;"></div><br>
+            <div id="progressContainer" class="progress-bar">
+                <div id="line" style="width: 100%; height: 2px; background-color: #ddd; position: absolute;margin-top: 9px;">
+                    <div id="progress"></div>
+                </div>
+                <div id="circle1" style="width: 20px;height: 20px;background-color: #ddd; float: left; margin-left: -5px; border-radius: 50px; z-index: 100; position: absolute;"></div>
+                <div id="circle2" style="width: 20px;height: 20px;background-color: #ddd; float: left; margin-left: 270px; border-radius: 50px; z-index: 100; position: absolute;"></div>
+                <div id="circle3" style="width: 20px;height: 20px;background-color: #ddd; float: right; border-radius: 50px; z-index: 100; "></div>
+            </div>
+            <br><br>
+            <span style="font-size: small;float: left;">Pending</span>
+            <span style="font-size: small;float: left; margin-left: 230px;">Shipped</span>
+            <span style="font-size: small;float: right;">Delivered</span>
+
+            <form action="{% url 'order-cancel' %}" method="POST"> {% csrf_token %}
+                <input type="hidden" name="ordercancel" value="{{ statusob.id }}">
+                <input type="submit" class="cancel_btn" value="Cancel">
+            </form>
+        </div>
+    </a>
+</div>
+
+<script>
+    fun();
+    function fun(argument) {
+        var line = document.getElementById('line');
+        var pro = document.getElementById('progress');
+
+        var circle1 = document.getElementById('circle1');
+        circle1.style.backgroundColor='orange';
+        circle1.style.boxShadow='0 0 5px 1px orange';
+
+        var circle2 = document.getElementById('circle2');
+        var circle3 = document.getElementById('circle3');
+
+        var width = 1;
+        var target = 0;
+        var id = setInterval(frame, 10);
+
+        var status = '{{ statusob.process }}';
+        if(status=="Pending")
+            target = 23;
+        else if (status=="Shipped")
+            target = 75;
+        else if(status=="Delivered")
+            target = 100;
+        else{
+            circle1.style.backgroundColor='#ddd';
+            circle1.style.boxShadow='0 0 0 0 #ddd';
+            pro.style.backgroundColor='#ddd';
+            pro.style.boxShadow='0 0 0 0 #ddd';
+        }
+
+        function frame() {
+            if(width >= target){
+                clearInterval(id);
+            } else {
+                width++;
+                if(width >= 45){
+                    circle2.style.backgroundColor='orange';
+                    circle2.style.boxShadow='0 0 5px 1px orange';
+                }
+                if(width >= 97){
+                    circle3.style.backgroundColor='orange';
+                    circle3.style.boxShadow='0 0 5px 1px orange';
+                    line.style.backgroundColor='orange';
+                }
+                pro.style.width = width + '%';
+            }
+        }
+    }
+
+</script>
+{% endblock contain %}

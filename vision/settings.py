@@ -36,6 +36,8 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'vs24.apps.Vs24Config',
     'product.apps.ProductConfig',
+    'cart.apps.CartConfig',
+    'tracking.apps.TrackingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,25 +79,26 @@ WSGI_APPLICATION = 'vision.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+#
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': '',
-#         'USER': '',
-#         'PASSWORD': '',
-#          'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
-#          'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", },
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+# install library :- sudo apt-get install libmysqlclient-dev, pip3 install mysqlclient
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vs24_db',
+        'USER': 'rocky',
+        'PASSWORD': 'golu',
+         'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
+         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", },
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

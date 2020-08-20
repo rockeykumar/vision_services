@@ -1,0 +1,61 @@
+.orderStatus-body{
+    background-color: #f3f3f3;
+    width: 1349px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.orderStatus-body .status-inner-body {
+    background-color: #fff;
+    width: 1000px;
+    height: 340px;
+    padding: 20px;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+
+.orderStatus-body .status-inner-body .img {
+    float: left;
+    background-color: #ddd;
+    width: 250px;
+    height: 250px;
+    margin-right: 30px;
+    box-sizing: border-box;
+}
+
+.orderStatus-body .status-inner-body h1 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.orderStatus-body .status-inner-body span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.orderStatus-body .status-inner-body .progress-bar {
+    float: left;
+    background-color: transparent;
+    width: 565px;
+    height: 20px;
+    position: relative;
+    border-radius: 50px;
+    margin-left: 18px;
+}
+
+
+.orderStatus-body .status-inner-body .cancel_btn {
+    float: right;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: orangered;
+    border: none;
+    margin-top: 40px;
+    margin-right: -53px;
+}

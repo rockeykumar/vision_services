@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
 class Registration(models.Model):
 
     FName = models.CharField(max_length=30)
@@ -12,4 +9,7 @@ class Registration(models.Model):
     Password = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.FName+" "+self.LName
+        return self.Email
+
+
+
