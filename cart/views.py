@@ -15,7 +15,7 @@ from cart.Paytm import Checksum
 
 #'MID': 'WorldP64425807474247'
 #MERCHANT_KEY = 'kbzk1DSbJiV_O3p5'
-MERCHANT_KEY = 'fsCXTDIoIkJ_@&d6'
+MERCHANT_KEY = ''
 
 
 def cart(request):
@@ -263,7 +263,7 @@ def confirmOrder(request):
 
             # 'ORDER_ID': or_id,
             param_dict = {
-                'MID': 'DlPVbc40643401016043',
+                'MID': '',
                 'ORDER_ID': or_id,
                 'TXN_AMOUNT': str(net_amt),
                 'CUST_ID': usr_eml,
